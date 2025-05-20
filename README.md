@@ -1,5 +1,13 @@
 ## Yuri Sung _ git hub 
 
+<div align="center">
+  <img src="https://cdn.pixelied.com/images/blog/minecraft-fonts/minecraft-fonts-2.webp" width="400px" alt="minecraft banner" />
+  <br/><br/>
+  <h2 style="font-family:monospace;">Hi, I'm Yuri! ⛏️</h2>
+  <p style="font-family:monospace;">Building blocks in code & life, one pixel at a time.</p>
+</div>
+
+
 
  <h3 align="center">✨ Tech Stack ✨</h3>
 <div align="center">
