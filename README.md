@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="https://cdn.pixelied.com/images/blog/minecraft-fonts/minecraft-fonts-2.webp" width="400px" alt="minecraft banner" />
+  
   <br/><br/>
   <h2 style="font-family:monospace;">Hi, I'm Yuri! ⛏️</h2>
   <p style="font-family:monospace;">Building blocks in code & life, one pixel at a time.</p>
@@ -12,7 +12,7 @@
 <p style="font-family:monospace; font-size:16px;">⛏️ Hello world from my blocky universe ⛏️</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/사용자아이디/저장소명/경로/yuri_blocky_text_only.png" alt="Yuri's Blocky Dev World" width="600" />
+  <img src="https://github.com/yuriuser126/yuriuser126/blob/main/images/hello-world-banner.png?raw=true" alt="Hello world from my blocky universe" />
 </p>
 
 
