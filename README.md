@@ -11,6 +11,9 @@
 
 <p style="font-family:monospace; font-size:16px;">⛏️ Hello world from my blocky universe ⛏️</p>
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/사용자아이디/저장소명/경로/yuri_blocky_text_only.png" alt="Yuri's Blocky Dev World" width="600" />
+</p>
 
 
 
