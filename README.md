@@ -1,7 +1,5 @@
 ## Yuri Sung _ git hub 
 
-<img src="https://media.giphy.com/media/Y4ak9Ki2GZCbJxAnJD/giphy.gif" width="100%" alt="minecraft style code gif"/>
-
 
 <div align="center">
   <img src="https://cdn.pixelied.com/images/blog/minecraft-fonts/minecraft-fonts-2.webp" width="400px" alt="minecraft banner" />
