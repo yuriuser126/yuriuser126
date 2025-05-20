@@ -12,7 +12,7 @@
 <p style="font-family:monospace; font-size:16px;">⛏️ Hello world from my blocky universe ⛏️</p>
 
 <p align="center">
-  <img src="https://github.com/yuriuser126/yuriuser126/blob/main/images/hello-world-banner.png?raw=true" alt="Hello world from my blocky universe" />
+  <img src="images/hello-world-banner.png?raw=true" alt="Hello world from my blocky universe" />
 </p>
 
 
