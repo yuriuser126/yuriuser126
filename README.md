@@ -1,6 +1,11 @@
 ## Yuri Sung _ git hub 
 
 
+<p align="center">
+  <img src="https://github.com/yuriuser126/yuriuser126/blob/main/images/mine-banner.png"/>
+</p>
+
+
 <div align="center">
   
   <br/><br/>
