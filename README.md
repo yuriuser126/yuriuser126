@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/yuriuser126/yuriuser126/blob/main/images/mine-banner.png" alt="banner" style="max-width:100%; height:auto;" />
+  <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/07/Dirt_Block_JE2.png" alt="Dirt Block" width="48" height="48" style="margin-right: 12px;" />
+  <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d7/Diamond_Pickaxe_JE2.png" alt="Diamond Pickaxe" width="48" height="48" />
 </p>
 
 <div align="center">
