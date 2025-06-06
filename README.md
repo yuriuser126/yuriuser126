@@ -91,3 +91,15 @@ Building blocks in code & life, one pixel at a time.
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yuriuser126&show_icons=true&theme=dracula&include_all_commits=true&count_private=true)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yuriuser126&layout=compact&theme=dracula&langs_count=5)
+
+---
+
+<p align="center">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXVzZ2piaGNoZWhvNzl6d2NmZGswaTc4YmNmdnljY2twNGZpdGx0NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wKWxuUOcp9fdvckBty/giphy.gif" width="120" alt="Minecraft Diamond Pixel" />
+</p>
+
+<p align="center" style="font-family:monospace; color:gray;">
+  <em>Thanks for stopping by my repository! Keep mining your ideas ⛏️</em>
+</p>
+
+
