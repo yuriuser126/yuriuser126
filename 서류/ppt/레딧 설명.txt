@@ -1,0 +1,69 @@
+### Story: `Elasticsearch Reddit test`
+
+#### 📌 하위 업무 (Sub-tasks 또는 Tasks):
+
+1. **Reddit API 연동 설정**
+    
+    - Reddit 앱 등록 (클라이언트 ID, 시크릿 발급)
+        
+    - User-Agent 및 OAuth 인증 테스트
+        
+2. **Spring Boot에서 Reddit API 호출 기능 구현**
+    
+    - Reddit 인기 게시글 (`/r/{subreddit}/hot`) 가져오는 API 구현
+        
+    - RestTemplate 또는 WebClient 기반 비동기 처리
+        
+3. **Reddit API 데이터 구조 분석 및 DTO 설계**
+    
+    - Reddit JSON 구조 파악
+        
+    - DTO 클래스 설계 및 매핑
+        
+4. **Elasticsearch 연동 설정**
+    
+    - Elasticsearch 의존성 추가
+        
+    - Localhost or Cloud 환경 연결 확인 (포트 및 URL 설정)
+        
+    - 인덱스 생성 테스트
+        
+5. **Reddit API 응답 데이터 → Elasticsearch 저장 로직 구현**
+    
+    - 저장용 Entity/DTO 설계
+        
+    - API 응답 → Elasticsearch 저장
+        
+6. **Elasticsearch 데이터 조회 API 구현**
+    
+    - 저장된 데이터 검색 API (`title`, `subreddit`, `author` 등 기준)
+        
+    - 쿼리 DSL 또는 Native 쿼리 작성
+        
+7. **Elasticsearch 저장/조회 테스트 코드 작성**
+    
+    - 단위 테스트: 저장 및 검색
+        
+    - 통합 테스트: 전체 플로우 테스트
+        
+8. **(선택) 프론트엔드 연동 API 컨트롤러 구성**
+    
+    - `/reddit/save`, `/reddit/search` 등 RESTful 엔드포인트 제공
+        
+    - 요청/응답 포맷 정의
+
+
+
+
+중간 테스트를 위한 Postman 컬렉션 작성도 별도 업무로 관리 가능.
+
+
+>### 🔑 Reddit 앱 등록 정보
+| 항목                | 값                                   |
+| ----------------- | ----------------------------------- |
+| **앱 이름**          | ElasticTestApp                      |
+| **앱 유형**          | personal use script                 |
+| **Client ID**     | `gAxyswpmR1WkFAODzSq0rg` ✅          |
+| **Client Secret** | `5bfVehmhIUjRHf98oDGr6FNXeuRajQ` ✅  |
+| **User-Agent**    | Reasonable_Bet6964` ✅               |
+| **Redirect URI**  | `http://localhost:8080` ✅ 그대로 사용 가능 |
