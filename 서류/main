@@ -1,0 +1,29 @@
+
+[OpenData API Search – Main Page 구성 요약]
+
+1️⃣ 검색 메인 화면 + 인트로 소개
+- 상단 헤더 구성: 로고, 검색, API 문서, 수집 이력 버튼 표시
+- 초기 인트로 문구 및 인기 키워드 버튼 노출
+- 주요 컴포넌트: PingTest, SearchBar
+
+2️⃣ 검색 기능 실행 및 결과 출력
+- 검색어 입력 시 useSearch 훅으로 API 검색 실행
+- 검색 시간, 결과 개수, 문서 포함 여부 표시
+- 로딩 상태 시 스켈레톤 UI / 에러 시 안내 메시지 / 결과 없을 시 제안 키워드 표시
+- 주요 컴포넌트: SearchResultCard
+
+3️⃣ API 문서 보기 (SwaggerModal)
+- 검색 결과 항목 클릭 시 Swagger API 문서 모달로 표시
+- 상태 관리: selectedResult, showSwaggerModal
+- 주요 컴포넌트: SwaggerModal
+
+4️⃣ 부가 정보 및 소개 영역
+- 검색 전에는 통합 검색 / API 문서 / 실시간 정보 등 기능 소개
+- 인기 키워드 버튼 제공
+- 하단 푸터에 서비스 소개 및 카피 문구 포함
+
+[기술 요소 요약]
+- lucide-react 아이콘 사용, shadcn/ui 버튼 활용
+- 환경변수(.env)로 API 주소 관리
+- useSearch 훅을 통한 검색 상태 분리 관리
+- pingServer 함수로 백엔드 상태 테스트 기능 포함
