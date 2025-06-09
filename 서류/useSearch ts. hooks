@@ -1,0 +1,217 @@
+
+---
+
+## ✅ 기능 개요
+
+- 검색어(`query`) 입력 시, 더미(mock) 데이터에서 조건에 맞는 데이터를 필터링
+- 필터(`category`, `format`) 및 정렬(`최신순`, `인기순`) 기능 포함
+- 결과 개수, 검색 시간, 오류 메시지, 로딩 상태 등을 상태로 관리
+- 추후 실제 API 연동 시 구조 유지하며 `fetch` 또는 `axios`로 교체 가능
+
+---
+
+## 🔁 검색 흐름 요약
+
+```plaintext
+1. 사용자가 검색어 및 필터 입력
+2. search() 함수 실행
+3. mockSearchResults에서 검색어와 필터 기준으로 결과 필터링
+4. 정렬 조건 (최신순 / 인기순) 적용
+5. 결과 저장 → 결과 리스트로 렌더링
+
+
+ useSearch Hook 구조
+import { useState, useCallback } from "react"
+
+// 🔍 검색 결과 항목 인터페이스
+interface SearchResult {
+  title: string
+  description: string
+  keywords: string[]
+  category: string
+  dataFormat: string
+  lastUpdated: string
+  downloadCount: number
+}
+
+// 🔧 필터 타입 정의
+interface SearchFilters {
+  category?: string
+  format?: string
+  sortBy?: "date" | "popularity"
+}
+
+// 📦 목업 데이터 예시 (추후 API 연동 가능)
+const mockSearchResults: SearchResult[] = [
+  {
+    title: "DevLingo Guide",
+    description: "A developer dictionary for modern tech terms.",
+    keywords: ["dev", "lingo", "dictionary"],
+    category: "Documentation",
+    dataFormat: "Markdown",
+    lastUpdated: "2025-06-07T12:00:00Z",
+    downloadCount: 124,
+  },
+  // ...다른 mock 데이터
+]
+
+export const useSearch = () => {
+  const [results, setResults] = useState<SearchResult[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [query, setQuery] = useState("")
+  const [filters, setFilters] = useState<SearchFilters>({})
+  const [totalResults, setTotalResults] = useState(0)
+  const [searchTime, setSearchTime] = useState(0)
+
+  // 🔎 검색 함수
+  const search = useCallback(async (searchQuery: string, searchFilters?: SearchFilters) => {
+    if (!searchQuery.trim()) {
+      setResults([])
+      setQuery("")
+      return
+    }
+
+    setLoading(true)
+    setError(null)
+    setQuery(searchQuery)
+    setFilters(searchFilters || {})
+
+    try {
+      const startTime = Date.now()
+
+      // ⏳ mock delay (실제 API fetch로 대체 가능)
+      await new Promise((r) => setTimeout(r, 300 + Math.random() * 200))
+
+      let filtered = mockSearchResults
+
+      // 🔍 키워드 필터
+      filtered = filtered.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.keywords.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+
+      // 🎯 카테고리 필터
+      if (searchFilters?.category) {
+        filtered = filtered.filter((item) => item.category === searchFilters.category)
+      }
+
+      // 📄 형식 필터
+      if (searchFilters?.format) {
+        filtered = filtered.filter((item) =>
+          item.dataFormat.toLowerCase().includes(searchFilters.format!.toLowerCase())
+        )
+      }
+
+      // ⬇️ 정렬 필터
+      if (searchFilters?.sortBy === "date") {
+        filtered.sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime())
+      } else if (searchFilters?.sortBy === "popularity") {
+        filtered.sort((a, b) => b.downloadCount - a.downloadCount)
+      }
+
+      const endTime = Date.now()
+      setSearchTime((endTime - startTime) / 1000)
+      setResults(filtered)
+      setTotalResults(filtered.length)
+    } catch (err) {
+      setError("검색 중 오류가 발생했습니다.")
+      setResults([])
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  // 🧹 검색 초기화
+  const clearSearch = useCallback(() => {
+    setResults([])
+    setQuery("")
+    setFilters({})
+    setError(null)
+    setTotalResults(0)
+    setSearchTime(0)
+  }, [])
+
+  return {
+    results,
+    loading,
+    error,
+    query,
+    filters,
+    totalResults,
+    searchTime,
+    search,
+    clearSearch,
+  }
+}
+
+
+
+[사용자 입력]
+     |
+     v
+[search("검색어", 필터)]
+     |
+     v
+[useCallback 내부 search 함수 실행]
+     |
+     v
+[API 요청 전 로딩/상태 초기화]
+     |
+     v
+[API 또는 mock 데이터 fetch]
+     |
+     v
+[검색어/필터 기반 데이터 필터링]
+     |
+     v
+[정렬 조건 적용]
+     |
+     v
+[결과 리스트 setResults() 상태로 저장]
+     |
+     v
+[검색 시간 측정, 총 개수 setTotalResults()]
+     |
+     v
+[로딩 종료]
+     |
+     v
+[결과 UI 반영 (예:]()
+
+✅ useSearch 훅 작동 흐름 요약
+1. 사용자 입력
+사용자가 검색어 또는 **필터(카테고리, 포맷, 정렬)**를 입력
+
+2. search() 함수 실행
+검색어와 필터를 인자로 받아 실행됨
+
+기존 상태 초기화 (loading ON, 에러 초기화, 검색어 저장 등)
+
+3. API 호출 시뮬레이션
+setTimeout을 사용해 네트워크 지연 흉내냄 (실제 서비스에서는 API 호출)
+
+4. 데이터 필터링
+검색어 기준으로 title, description, keywords 필터링
+
+필터 값(category, format) 적용
+
+정렬(date, popularity) 조건 적용
+
+5. 결과 저장
+필터링된 결과를 results에 저장
+
+검색 시간 계산 후 searchTime에 저장
+
+총 결과 수는 totalResults에 저장
+
+6. 에러 처리 및 로딩 종료
+오류 발생 시 에러 메시지 저장
+
+마지막에 loading 상태 false로 변경
+
+🧹 clearSearch() 함수
+상태 초기화: 결과, 검색어, 필터, 에러, 개수, 시간 모두 리셋
+
